@@ -1,0 +1,15 @@
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\obj\Debug\net6.0\Desafio8.csproj.AssemblyReference.cache
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\obj\Debug\net6.0\Desafio8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\obj\Debug\net6.0\Desafio8.AssemblyInfoInputs.cache
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\obj\Debug\net6.0\Desafio8.AssemblyInfo.cs
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\obj\Debug\net6.0\Desafio8.csproj.CoreCompileInputs.cache
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\bin\Debug\net6.0\Desafio8.exe
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\bin\Debug\net6.0\Desafio8.deps.json
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\bin\Debug\net6.0\Desafio8.runtimeconfig.json
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\bin\Debug\net6.0\Desafio8.dll
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\bin\Debug\net6.0\Desafio8.pdb
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\obj\Debug\net6.0\Desafio8.dll
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\obj\Debug\net6.0\refint\Desafio8.dll
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\obj\Debug\net6.0\Desafio8.pdb
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\obj\Debug\net6.0\Desafio8.genruntimeconfig.cache
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio8\Desafio8\obj\Debug\net6.0\ref\Desafio8.dll
