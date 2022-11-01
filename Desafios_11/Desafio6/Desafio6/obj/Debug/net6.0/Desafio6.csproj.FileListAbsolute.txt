@@ -1,0 +1,15 @@
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\bin\Debug\net6.0\Desafio6.exe
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\bin\Debug\net6.0\Desafio6.deps.json
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\bin\Debug\net6.0\Desafio6.runtimeconfig.json
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\bin\Debug\net6.0\Desafio6.dll
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\bin\Debug\net6.0\Desafio6.pdb
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\obj\Debug\net6.0\Desafio6.csproj.AssemblyReference.cache
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\obj\Debug\net6.0\Desafio6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\obj\Debug\net6.0\Desafio6.AssemblyInfoInputs.cache
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\obj\Debug\net6.0\Desafio6.AssemblyInfo.cs
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\obj\Debug\net6.0\Desafio6.csproj.CoreCompileInputs.cache
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\obj\Debug\net6.0\Desafio6.dll
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\obj\Debug\net6.0\refint\Desafio6.dll
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\obj\Debug\net6.0\Desafio6.pdb
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\obj\Debug\net6.0\Desafio6.genruntimeconfig.cache
+C:\Users\renan\My Drive\TI\GitHub\csharp\Desafios_11\Desafio6\Desafio6\obj\Debug\net6.0\ref\Desafio6.dll
