@@ -11,12 +11,21 @@ namespace Desafio1
         {
             try
             {
-                Console.WriteLine("Esse programa responde se o número digitado é maior do que 500.");
-                Console.Write("Digite um número: ");
-                double numero = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                char resposta = 's';
+                while (resposta != 'n')
+                {
+                    Console.WriteLine("Esse programa responde se o número digitado é maior do que 500.");
+                    Console.Write("Digite um número: ");
+                    double numero = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                ComparadorNumerico comp = new ComparadorNumerico(numero);
-                Console.WriteLine(comp.ComparaNumero(numero));
+                    ComparadorNumerico comp = new ComparadorNumerico(numero);
+                    Console.WriteLine(comp.ComparaNumero(numero));
+
+                    Console.Write("Gostaria de eecutar o programa novamente (s/n)? ");
+                    resposta = char.Parse(Console.ReadLine());
+                    Console.Clear();
+                }
+                Console.WriteLine("Obrigado por utilizar o programa!");
             }
             catch (FormatException e)
             {
