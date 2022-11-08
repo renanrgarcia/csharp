@@ -10,35 +10,49 @@ namespace Desafio4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Esse programa lê três notas");
-            Console.Write("Quantas notas deseja inserir? ");
-            int n = int.Parse(Console.ReadLine());
-            Console.Clear();
-
-            double[] vetor = new double[n];
-            for (int i = 0; i < n; i++)
+            try
             {
-                Console.Write($"Digite a {i+1}ª nota: ");
-                vetor[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            }
-            Console.Clear();
+                char resposta = 's';
+                while (resposta != 'n')
+                {
+                    Console.WriteLine("Esse programa lê três notas, calcula sua média e determina se foi ou não aprovado.");
+                    Console.Write("Quantas notas deseja inserir? ");
+                    int n = int.Parse(Console.ReadLine());
+                    Console.Clear();
 
-            double soma = 0;
-            for (int i = 0; i < n; i++)
+                    double[] vetor = new double[n];
+                    for (int i = 0; i < n; i++)
+                    {
+                        Console.Write($"Digite a {i + 1}ª nota: ");
+                        vetor[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    }
+                    Console.Clear();
+
+                    double soma = 0;
+                    for (int i = 0; i < n; i++)
+                    {
+                        soma += vetor[i];
+                    }
+                    double media = (double)soma / n;
+
+                    string aprovacao;
+                    if (media >= 6.5)
+                        aprovacao = "aprovado";
+                    else
+                        aprovacao = "reprovado";
+
+                    Console.WriteLine("A média do aluno é " + media.ToString("F1", CultureInfo.InvariantCulture) + ". Aluno " + aprovacao + "!");
+
+                    Console.Write("Gostaria de executar o programa novamente (s/n)? ");
+                    resposta = char.Parse(Console.ReadLine());
+                    Console.Clear();
+                }
+                Console.WriteLine("Obrigado por utilizar o programa!");
+            }
+            catch (FormatException e)
             {
-                soma += vetor[i];
+                Console.WriteLine(e.Message);
             }
-            double media = (double) soma / n;
-
-            string aprovacao;
-            if (media >= 6.5)
-                aprovacao = "aprovado";
-            else
-                aprovacao = "reprovado";
-
-
-            Console.WriteLine("A média do aluno é " + media.ToString("F1", CultureInfo.InvariantCulture) + ". Aluno " + aprovacao + "!"); 
-
         }
     }
 }
