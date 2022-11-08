@@ -18,17 +18,14 @@ namespace Desafio2
                     Console.WriteLine("Esse sistema informa se a senha informada é válida ou não.");
                     Console.Write("Digite sua senha: ");
                     string senha = Console.ReadLine();
-                    Login log = new Login(senha);
-
-                    if (log.TesteSenha(senha) == true)
-                    {
+                    
+                    senha = senha.ToUpper();
+                    if (senha == "SENHA")
                         Console.WriteLine("Senha válida!");
-                    }
                     else
-                    {
                         Console.WriteLine("Senha inválida!");
-                    }
-                    Console.Write("Gostaria de eecutar o programa novamente (s/n)? ");
+
+                    Console.Write("Gostaria de executar o programa novamente (s/n)? ");
                     resposta = char.Parse(Console.ReadLine());
                     Console.Clear();
                 }
