@@ -16,17 +16,13 @@ namespace Desafio3
                 {
                     Console.WriteLine("Esse sistema alerta se o número informado está entre -100 e 100.");
                     Console.Write("Digite um número: ");
-                    double x = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    ComparaNumero numero = new ComparaNumero(x);
-
-                    if (numero.PertenceIntervalo(x) == true)
-                    {
-                        Console.WriteLine("O número é " + x.ToString(CultureInfo.InvariantCulture) + " e está entre -100 e 100.");
-                    }
+                    double numero = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    
+                    if (numero >= -100.0 && numero <= 100.0)
+                        Console.WriteLine("O número é " + numero.ToString(CultureInfo.InvariantCulture) + " e está entre -100 e 100.");
                     else
-                    {
-                        Console.WriteLine("O número é " + x.ToString(CultureInfo.InvariantCulture) + " e não está entre -100 e 100.");
-                    }
+                        Console.WriteLine("O número é " + numero.ToString(CultureInfo.InvariantCulture) + " e não está entre -100 e 100.");
+
                     Console.Write("Gostaria de eecutar o programa novamente (s/n)? ");
                     resposta = char.Parse(Console.ReadLine());
                     Console.Clear();
