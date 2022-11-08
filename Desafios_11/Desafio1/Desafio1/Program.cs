@@ -18,10 +18,14 @@ namespace Desafio1
                     Console.Write("Digite um número: ");
                     double numero = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                    ComparadorNumerico comp = new ComparadorNumerico(numero);
-                    Console.WriteLine(comp.ComparaNumero(numero));
+                    if (numero == 500.0)
+                        Console.WriteLine("O número informado é igual a 500.");
+                    else if (numero > 500.0)
+                        Console.WriteLine("O número informado é maior que 500.");
+                    else
+                        Console.WriteLine("O número informado é menor que 500.");
 
-                    Console.Write("Gostaria de eecutar o programa novamente (s/n)? ");
+                    Console.Write("Gostaria de executar o programa novamente (s/n)? ");
                     resposta = char.Parse(Console.ReadLine());
                     Console.Clear();
                 }
