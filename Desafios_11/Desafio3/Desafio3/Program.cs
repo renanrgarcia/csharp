@@ -11,21 +11,35 @@ namespace Desafio3
         {
             try
             {
-                char resposta = 's';
-                while (resposta != 'n')
+                string resposta = "s";
+                double intervaloInferior = -100.0;
+                double intervaloSuperior = 100.0;
+
+                while (resposta != "n")
                 {
-                    Console.WriteLine("Esse sistema alerta se o número informado está entre -100 e 100.");
+                    Console.WriteLine($"Esse sistema alerta se o número informado está entre {intervaloInferior} e {intervaloSuperior}.");
                     Console.Write("Digite um número: ");
                     double numero = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    
-                    if (numero >= -100.0 && numero <= 100.0)
-                        Console.WriteLine("O número é " + numero.ToString(CultureInfo.InvariantCulture) + " e está entre -100 e 100.");
-                    else
-                        Console.WriteLine("O número é " + numero.ToString(CultureInfo.InvariantCulture) + " e não está entre -100 e 100.");
 
-                    Console.Write("Gostaria de eecutar o programa novamente (s/n)? ");
-                    resposta = char.Parse(Console.ReadLine());
+                    if (numero >= intervaloInferior && numero <= intervaloSuperior)
+                        Console.WriteLine("O número é " + numero.ToString(CultureInfo.InvariantCulture) + $" e está entre {intervaloInferior} e {intervaloSuperior}.");
+                    else
+                        Console.WriteLine("O número é " + numero.ToString(CultureInfo.InvariantCulture) + $" e não está entre {intervaloInferior} e {intervaloSuperior}.");
+
+                    Console.Write("Gostaria de executar o programa novamente (s/n)? ");
+                    resposta = Console.ReadLine().ToLower();
+                    while (resposta.Length > 1)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Você digitou mais de um caracter. Digite (s) para sim ou (n) para não.");
+                        Console.Write("Gostaria de executar o programa novamente (s/n)? ");
+                        resposta = Console.ReadLine().ToLower();
+                    }
                     Console.Clear();
+
+                    intervaloInferior -= 5;
+                    intervaloSuperior += 5;
+
                 }
                 Console.WriteLine("Obrigado por utilizar o programa!");
             }
