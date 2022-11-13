@@ -11,26 +11,42 @@ namespace Desafio1
         {
             try
             {
-                char resposta = 's';
+                string resposta = "s";
                 double constante = 100.0;
-                while (resposta != 'n')
+                while (resposta != "n")
                 {
                     Console.WriteLine($"Esse programa responde se o número digitado é maior do que {constante}.");
-                    Console.Write("Digite um número: ");
-                    double numero = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    Console.Write("Digite um número real: ");
+                    string valor = Console.ReadLine();
 
-                    if (numero == constante)
-                        Console.WriteLine($"O número informado é igual a {constante}.");
-                    else if (numero > constante)
-                        Console.WriteLine($"O número informado é maior que {constante}.");
-                    else 
-                        Console.WriteLine($"O número informado é menor que {constante}.");
+                    bool successo = double.TryParse(valor, out double numero);
+                    if (successo)
+                    {
+                        if (numero == constante)
+                            Console.WriteLine($"O número informado é igual a {constante}.");
+                        else if (numero > constante)
+                            Console.WriteLine($"O número informado é maior que {constante}.");
+                        else
+                            Console.WriteLine($"O número informado é menor que {constante}.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Este programa exige a entrada de um número real. "
+                            + $"O valor digitado '{valor ?? "<null>"}' não é compatível.");
+                    }
 
                     Console.Write("Gostaria de executar o programa novamente (s/n)? ");
-                    resposta = char.Parse(Console.ReadLine().ToLower());
-                    Console.Clear();
+                    resposta = Console.ReadLine().ToLower();
 
-                    constante *= 2;
+                    while (resposta != "s" && resposta != "n")
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"Digite (s) para sim ou (n) para não. " +
+                            $"O valor '{resposta ?? "<null>"}' não é compatível.");
+                        Console.Write("Gostaria de executar o programa novamente (s/n)? ");
+                        resposta = Console.ReadLine().ToLower();
+                    }
+                    Console.Clear();
                 }
                 Console.WriteLine("Obrigado por utilizar o programa!");
             }
