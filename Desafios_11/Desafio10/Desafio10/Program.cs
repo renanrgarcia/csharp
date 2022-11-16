@@ -13,19 +13,31 @@ namespace Desafio10
         {
             try
             {
-                char resposta = 's';
-                while (resposta != 'n')
+                string resposta = "s";
+                while (resposta != "n")
                 {
                     Console.WriteLine("Esse programa calcula a média final e o status de aprovação de duas matérias para um aluno.");
 
                     double[,] mat = new double[2, 4];
 
+                    
                     for (int i = 0; i < 2; i++)
                     {
-                        Console.Write($"Digite as quatro notas da {i + 1} matéria entre espaços: ");
-                        string[] valores = Console.ReadLine().Split(' ');
+                        bool sucesso = false;
+                        Console.WriteLine($"Digite as quatro notas da {i + 1}ª matéria abaixo. ");
                         for (int j = 0; j < 4; j++)
-                            mat[i, j] = double.Parse(valores[j], CultureInfo.InvariantCulture);
+                            do
+                            {
+                                Console.Write($"Digite a {j + 1}ª nota: ");
+                                string nota = Console.ReadLine();
+                                sucesso = double.TryParse(nota, NumberStyles.Number, CultureInfo.InvariantCulture, out mat[i, j]);
+                                if (!sucesso || mat[i, j] <= 0.0)
+                                {
+                                    Console.WriteLine("Você deve digitar um valor real positivo"
+                                        + $"O valor digitado '{nota ?? "<null>"}' não é compatível.");
+                                }
+                            } while (!sucesso || mat[i, j] <= 0.0);
+                        Console.Clear();
                     }
 
                     double[] media = new double[2];
@@ -38,10 +50,10 @@ namespace Desafio10
                             sum += mat[i, j];
                         }
                         media[i] = sum / 4;
-                        sum = 0;
+                        sum = 0.0;
                     }
 
-                    double MediaFinal = (media[0] + media[1]) / 2;
+                    double MediaFinal = (media[0] + media[1]) / 2.0;
 
                     if (MediaFinal >= 7.0)
                         Console.WriteLine("Média final = " + MediaFinal.ToString("F1", CultureInfo.InvariantCulture) + ". O aluno está Aprovado.");
@@ -51,7 +63,16 @@ namespace Desafio10
                         Console.WriteLine("Média final = " + MediaFinal.ToString("F1", CultureInfo.InvariantCulture) + ". O aluno está Reprovado.");
 
                     Console.Write("Gostaria de executar o programa novamente (s/n)? ");
-                    resposta = char.Parse(Console.ReadLine());
+                    resposta = Console.ReadLine().ToLower();
+
+                    while (resposta != "s" && resposta != "n")
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"Digite (s) para sim ou (n) para não. " +
+                            $"O valor '{resposta ?? "<null>"}' não é compatível.");
+                        Console.Write("Gostaria de executar o programa novamente (s/n)? ");
+                        resposta = Console.ReadLine().ToLower();
+                    }
                     Console.Clear();
                 }
                 Console.WriteLine("Obrigado por utilizar o programa!");
