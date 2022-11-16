@@ -19,27 +19,36 @@ namespace Desafio3
                 {
                     Console.WriteLine($"Esse sistema alerta se o número informado está entre {intervaloInferior} e {intervaloSuperior}.");
                     Console.Write("Digite um número: ");
-                    double numero = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    string valor = Console.ReadLine();
 
-                    if (numero >= intervaloInferior && numero <= intervaloSuperior)
-                        Console.WriteLine("O número é " + numero.ToString(CultureInfo.InvariantCulture) + $" e está entre {intervaloInferior} e {intervaloSuperior}.");
+                    bool successo = double.TryParse(valor, out double numero);
+
+                    if (successo)
+                    {
+                        if (numero >= intervaloInferior && numero <= intervaloSuperior)
+                            Console.WriteLine("O número é " + numero.ToString(CultureInfo.InvariantCulture) + $" e está entre {intervaloInferior} e {intervaloSuperior}.");
+                        else
+                            Console.WriteLine("O número é " + numero.ToString(CultureInfo.InvariantCulture) + $" e não está entre {intervaloInferior} e {intervaloSuperior}.");
+
+                    }
                     else
-                        Console.WriteLine("O número é " + numero.ToString(CultureInfo.InvariantCulture) + $" e não está entre {intervaloInferior} e {intervaloSuperior}.");
+                    {
+                        Console.WriteLine("Este programa exige a entrada de um número real. "
+                            + $"O valor digitado '{valor ?? "<null>"}' não é compatível.");
+                    }
 
                     Console.Write("Gostaria de executar o programa novamente (s/n)? ");
                     resposta = Console.ReadLine().ToLower();
-                    while (resposta.Length > 1)
+
+                    while (resposta != "s" && resposta != "n")
                     {
                         Console.Clear();
-                        Console.WriteLine("Você digitou mais de um caracter. Digite (s) para sim ou (n) para não.");
+                        Console.WriteLine($"Digite (s) para sim ou (n) para não. " +
+                            $"O valor '{resposta ?? "<null>"}' não é compatível.");
                         Console.Write("Gostaria de executar o programa novamente (s/n)? ");
                         resposta = Console.ReadLine().ToLower();
                     }
                     Console.Clear();
-
-                    intervaloInferior -= 5;
-                    intervaloSuperior += 5;
-
                 }
                 Console.WriteLine("Obrigado por utilizar o programa!");
             }
