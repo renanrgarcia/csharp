@@ -13,45 +13,58 @@ namespace Desafio4
         {
             try
             {
-                // int[] a = new int[4];
-                
                 string resposta = "s";
                 while (resposta != "n")
                 {
                     Console.WriteLine("Esse programa lê as notas de um aluno, calcula sua média e determina se foi ou não aprovado.");
-                    Console.Write("Quantas notas deseja inserir? ");
-                    int n = int.Parse(Console.ReadLine());
 
-                    while (n < 1){
-                        Console.WriteLine("O valor inserido deve ser um número inteiro positivo.");
-                        Console.Write("Quantas notas deseja inserir? ");
-                        n = int.Parse(Console.ReadLine());
-                    }
-
-                    Console.Clear();
-
-                    Console.Write("Qual o valor da média para aprovação? ");
-                    double mediaAprovacao = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    while (mediaAprovacao < 0.0)
+                    int n = 0;
+                    do
                     {
-                        Console.WriteLine("O valor inserido deve ser um número real positivo.");
-                        Console.Write("Qual o valor da média para aprovação? ");
-                        mediaAprovacao = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    }
+                        Console.Write("Quantas notas deseja inserir? ");
+                        string x = Console.ReadLine();
 
-                    Console.Clear();
+                        Console.Clear();
+                        bool successo = int.TryParse(x, out n);
+                        if (!successo || n <= 0)
+                        {
+                            Console.WriteLine("Você deve digitar um valor inteiro positivo não nulo. "
+                                + $"O valor digitado '{x ?? "<null>"}' não é compatível.");
+                        }
+                    } while (n < 1);
+
+                    double mediaAprovacao = 0;
+                    do
+                    {
+                        Console.Write("Qual o valor da média para aprovação? ");
+                        string m = Console.ReadLine();
+
+                        Console.Clear();
+                        bool successo = double.TryParse(m, out mediaAprovacao);
+                        if (!successo || mediaAprovacao <= 0.0)
+                        {
+                            Console.WriteLine("Você deve digitar um valor real positivo não nulo. "
+                                + $"O valor digitado '{m ?? "<null>"}' não é compatível.");
+                        }
+                    } while (mediaAprovacao <= 0.0);
 
                     double[] vetor = new double[n];
                     for (int i = 0; i < n; i++)
                     {
-                        Console.Write($"Digite a {i + 1}ª nota: ");
-                        vetor[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                        while (vetor[i] < 0.0)
+                        bool sucesso = false;
+                        do
                         {
-                            Console.WriteLine("O valor inserido deve ser um número real positivo.");
                             Console.Write($"Digite a {i + 1}ª nota: ");
-                            vetor[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                        }
+                            string nota = Console.ReadLine();
+
+                            Console.Clear();
+                            sucesso = double.TryParse(nota, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out vetor[i]);
+                            if (!sucesso || vetor[i] <= 0.0)
+                            {
+                                Console.WriteLine("Você deve digitar um valor real positivo não nulo. "
+                                    + $"O valor digitado '{nota ?? "<null>"}' não é compatível.");
+                            }
+                        } while (vetor[i] < 0.0 || !sucesso);
                     }
                     Console.Clear();
 
@@ -62,20 +75,22 @@ namespace Desafio4
                     }
                     double media = (double)soma / n;
 
-                    string aprovacao;
+                    string statusAprovacao;
                     if (media >= mediaAprovacao)
-                        aprovacao = "aprovado";
+                        statusAprovacao = "aprovado";
                     else
-                        aprovacao = "reprovado";
+                        statusAprovacao = "reprovado";
 
-                    Console.WriteLine("A média do aluno é " + media.ToString("F1", CultureInfo.InvariantCulture) + ". Aluno " + aprovacao + "!");
+                    Console.WriteLine("A média do aluno é " + media.ToString("F1", CultureInfo.InvariantCulture) + ". Aluno " + statusAprovacao + "!");
 
                     Console.Write("Gostaria de executar o programa novamente (s/n)? ");
                     resposta = Console.ReadLine().ToLower();
-                    while (resposta.Length > 1)
+
+                    while (resposta != "s" && resposta != "n")
                     {
                         Console.Clear();
-                        Console.WriteLine("Você digitou mais de um caracter. Digite (s) para sim ou (n) para não.");
+                        Console.WriteLine($"Digite (s) para sim ou (n) para não. " +
+                            $"O valor '{resposta ?? "<null>"}' não é compatível.");
                         Console.Write("Gostaria de executar o programa novamente (s/n)? ");
                         resposta = Console.ReadLine().ToLower();
                     }
