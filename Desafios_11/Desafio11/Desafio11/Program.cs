@@ -12,15 +12,48 @@ namespace Desafio11
         {
             try
             {
-                char resposta = 's';
-                while (resposta != 'n')
+                string resposta = "s";
+                while (resposta != "n")
                 {
                     Console.WriteLine("Esse programa exibe os três números digitados em ordem crescente.");
-                    Console.Write("Digite os três números entre espaços: ");
-                    string[] s = Console.ReadLine().Split(' ');
-                    double n1 = double.Parse(s[0], CultureInfo.InvariantCulture);
-                    double n2 = double.Parse(s[1], CultureInfo.InvariantCulture);
-                    double n3 = double.Parse(s[2], CultureInfo.InvariantCulture);
+
+                    double n1, n2, n3;
+                    bool sucesso = false;
+                    do
+                    {
+                        Console.Write($"Digite o primeiro número: ");
+                        string num = Console.ReadLine();
+                        sucesso = double.TryParse(num, NumberStyles.Number, CultureInfo.InvariantCulture, out n1);
+                        if (!sucesso)
+                        {
+                            Console.WriteLine("Você deve digitar um valor real"
+                                + $"O valor digitado '{num ?? "<null>"}' não é compatível.");
+                        }
+                    } while (!sucesso);
+
+                    do
+                    {
+                        Console.Write($"Digite o primeiro número: ");
+                        string num = Console.ReadLine();
+                        sucesso = double.TryParse(num, NumberStyles.Number, CultureInfo.InvariantCulture, out n2);
+                        if (!sucesso)
+                        {
+                            Console.WriteLine("Você deve digitar um valor real"
+                                + $"O valor digitado '{num ?? "<null>"}' não é compatível.");
+                        }
+                    } while (!sucesso);
+
+                    do
+                    {
+                        Console.Write($"Digite o primeiro número: ");
+                        string num = Console.ReadLine();
+                        sucesso = double.TryParse(num, NumberStyles.Number, CultureInfo.InvariantCulture, out n3);
+                        if (!sucesso)
+                        {
+                            Console.WriteLine("Você deve digitar um valor real"
+                                + $"O valor digitado '{num ?? "<null>"}' não é compatível.");
+                        }
+                    } while (!sucesso);
 
                     // 3 números iguais
                     if (n1 == n2 && n2 == n3)
@@ -82,7 +115,16 @@ namespace Desafio11
                     }
 
                     Console.Write("Gostaria de executar o programa novamente (s/n)? ");
-                    resposta = char.Parse(Console.ReadLine());
+                    resposta = Console.ReadLine().ToLower();
+
+                    while (resposta != "s" && resposta != "n")
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"Digite (s) para sim ou (n) para não. " +
+                            $"O valor '{resposta ?? "<null>"}' não é compatível.");
+                        Console.Write("Gostaria de executar o programa novamente (s/n)? ");
+                        resposta = Console.ReadLine().ToLower();
+                    }
                     Console.Clear();
                 }
                 Console.WriteLine("Obrigado por utilizar o programa!");
